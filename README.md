@@ -86,7 +86,7 @@ SELECT * FROM new;
 Теперь рассмотрим как можно добавить данные вручную.
 Чтобы ввесть данные вручную, нужно написать:
 ```sql
-INSERT INTO new (nick, year, cost) VALUES ('lolik', '2020', '67');
+INSERT INTO new (nick, year, cost) VALUES ('loli', '2020', '67');
 Query OK, 1 rows affected (0.01 sec)
 ```
 Переменные (nick, year, cost) можно использовать в каком угодно порядке:
@@ -99,6 +99,45 @@ Query OK, 1 rows affected (0.01 sec)
 DELETE FROM new WHERE nick='kelv' ///Удаляем все из таблицы New, где nick='kelv'
 ```
 ## Часть 3. Получение данных из MYSQL
+В MySQL мы можем выбрать данные из некоторого столбца:
+```sql
+SELECT nick FROM new;
++------+
+| nick |
++------+
+| user |
+| some |
+| loli |
+```
+Также мы можем сортировать по цене.
+```sql
+SELECT * FROM new WHERE cost='35';
++--------+--------+-------+
+| nick   | year   | cost  |
++--------+--------+-------+
+| user   | 2020   | 35    |
++--------+--------+-------+
+```
+Так же мы можем выбрать из двух параметров.
+```sql
+SELECT * FROM new WHERE cost='67' and year='2020';
++--------+--------+-------+
+| nick   | year   | cost  |
++--------+--------+-------+
+| loli   | 2020   | 67    |
++--------+--------+-------+
+```
+Также мы можем сортировать по колонкам:
+```sql
+SELECT FROM new ORDER by cost;
++--------+--------+-------+
+| nick   | year   | cost  |
++--------+--------+-------+
+| some   | 2019   | 31    |
+| user   | 2020   | 35    |
+| loli   | 2020   | 67    |
++--------+--------+-------+
+```
 
 
 #### ©Copyright Cloud App Storage
